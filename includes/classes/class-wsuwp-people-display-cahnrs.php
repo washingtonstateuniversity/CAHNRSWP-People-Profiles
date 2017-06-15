@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Class for CAHNRS customizations to WSUWP Content Syndicate People.
+ *
+ * WSUWP_People_Display_CAHNR
+ */
 class WSUWP_People_Display_CAHNRS {
 	
 	public function __construct(){
@@ -8,7 +13,9 @@ class WSUWP_People_Display_CAHNRS {
 		
 	} // end __construct()
 	
-	
+	/**
+	 * Start plugin customisations after theme setup
+	 */
 	public function init(){
 		
 		add_filter( 'wsuwp_people_item_html', array( $this, 'filter_wsuwp_people_item_html' ), 1, 4 );
@@ -21,7 +28,16 @@ class WSUWP_People_Display_CAHNRS {
 		
 	} // end init
 	
-	
+	/**
+	 * Get HTML for the specified display type
+	 * 
+	 * @param string $html HTML generated for a person in Content Syndicate People
+	 * @param stdClass $person Data returned from the WP REST API.
+	 * @param string $type Type of display to use
+	 * @param array $atts Attributes passed to the shortcode.
+	 *
+	 * @return string Generated HTML for an individual person.
+	 */
 	public function filter_wsuwp_people_item_html( $html, $person, $type, $atts ){
 		
 		switch( $type ){
@@ -36,7 +52,14 @@ class WSUWP_People_Display_CAHNRS {
 		
 	} // end filter_wsuwp_people_item_html
 	
-	
+	/**
+	 * Get HTML for table display type
+	 * 
+	 * @param stdClass $person Data returned from the WP REST API.
+	 * @param array $atts Attributes passed to the shortcode.
+	 *
+	 * @return string Generated HTML for an individual person.
+	 */
 	protected function get_person_display_table( $person, $atts ){
 		
 		if ( isset( $person->profile_photo ) && ( $person->profile_photo != '' ) ) {
@@ -87,7 +110,14 @@ class WSUWP_People_Display_CAHNRS {
 		
 	} // end get_person_display_table
 	
-	
+	/**
+	 * Add or Remove HTML from list of people.
+	 * 
+	 * @param string $html HTML generated for all people in Content Syndicate People
+	 * @param array $atts Attributes passed to the shortcode.
+	 *
+	 * @return string Generated HTML for an individual person.
+	 */
 	public function wsuwp_people_inner_html( $html, $atts ){
 		
 		switch( $atts['output'] ){
@@ -104,7 +134,16 @@ class WSUWP_People_Display_CAHNRS {
 		
 	} // end 
 	
-	
+	/**
+	 * Add additional shortcode attributes
+	 * 
+	 * @param array $out Array of key value shortcode pairs return from shorcode_atts
+	 * @param array $pairs
+	 * @param array $atts Attributes passed to the shortcode.
+	 * @param string $shortcode Shortcode name.
+	 *
+	 * @return array $out Array of key value shortcode pairs.
+	 */
 	public function shortcode_atts_cahnrswp_people( $out, $pairs, $atts, $shortcode ) {
 		
 		$out[ 'bio'] = ( ! empty( $atts[ 'bio'] ) ) ? $atts[ 'bio'] : '';
@@ -115,7 +154,14 @@ class WSUWP_People_Display_CAHNRS {
 		
 	} // end shortcode_atts_cahnrswp_people
 	
-	
+	/**
+	 * Sort People by $att criteria
+	 * 
+	 * @param array $people Data returned from the WP REST API.
+	 * @param array $atts Attributes passed to the shortcode.
+	 *
+	 * @return array Sorted data.
+	 */
 	public function wsuwp_people_sort_items( $people, $atts ) {
 		
 		if ( is_array( $people ) ) {
