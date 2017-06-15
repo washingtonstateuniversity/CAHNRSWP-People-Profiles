@@ -46,7 +46,8 @@ class Person_CAHNRSWP_People {
 		$photo = ( ! empty( $profile[ 'profile_photo' ] ) ) ? $profile[ 'profile_photo' ] : 'https://people.wsu.edu/wp-content/uploads/sites/908/2015/07/HeadShot_Template2.jpg';
 		$this->set_photo( $photo );
 		
-		$this->set_title( $profile[ 'position_title' ] );
+		$title = ( ! empty( $profile[ 'working_titles' ][0] ) ) ? $profile[ 'working_titles' ][0] : ucwords( strtolower( $profile[ 'position_title' ] ) );
+		$this->set_title( $title );
 		
 	} // end set_the_person
 	

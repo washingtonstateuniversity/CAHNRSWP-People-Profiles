@@ -1,6 +1,5 @@
 <?php
-
-/**
+/*
 * Plugin Name: CAHNRSWP People
 * Plugin URI:  http://cahnrs.wsu.edu/communications/
 * Description: Shortcodes for interacting with people.wsu.edu
@@ -11,44 +10,21 @@
 * License URI: http://copyright.wsu.edu
 */
 
-class CAHNRSWP_People_Profiles {
-	
-	public static $instance = false;
-	
-	
-	public static function get_instance(){
-		
-		if ( ! self::$instance ){
-			
-			self::$instance = new self;
-			
-			self::$instance->init();
-			
-		} // end if
-		
-		return self::$instance;
-		
-	} // end get_instance
-	
-	
-	public function init(){
-		
-		define( 'CAHNRSWPPEOPLEPLUGINPATH', plugin_dir_path( __FILE__ ) );
-		define( 'CAHNRSWPPEOPLEPLUGINURL', plugin_dir_url( __FILE__ ) );
-		
-		require_once 'classes/class-request-cahnrswp-people.php';
-		require_once 'classes/class-people-factory-cahnrswp-people.php';
-		require_once 'classes/class-shortcode-cahnrswp-people.php';
-		
-		$request = new Request_CAHNRSWP_People();
-		
-		$people_factory = new People_Factory_CAHNRSWP_People( $request );
-		
-		$shortcode = new Shortcode_CAHNRSWP_People( $people_factory, true );
-		
-	} // end init
-	
-	
-} // end CAHNRSWP_People_Profiles
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
-$cahnrswp_people_profiles = CAHNRSWP_People_Profiles::get_instance();
+// This plugin uses namespaces and requires PHP 5.3 or greater.
+if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
+	add_action( 'admin_notices', create_function( '',
+	"echo '<div class=\"error\"><p>" . __( 'WSUWP Plugin Skeleton requires PHP 5.3 to function properly. Please upgrade PHP or deactivate the plugin.', 'wsuwp-plugin-skeleton' ) . "</p></div>';" ) );
+	return;
+} else {
+	
+	define( 'CAHNRSWPPEOPLEPATH', plugin_dir_path( __FILE__ ) );
+	define( 'CAHNRSWPPEOPLEURL', plugin_dir_url( __FILE__ ) );
+	
+	include_once __DIR__ . '/includes/classes/class-wsuwp-people-display-cahnrs.php';
+
+}
