@@ -3,7 +3,7 @@
 * Plugin Name: CAHNRSWP People
 * Plugin URI:  http://cahnrs.wsu.edu/communications/
 * Description: Shortcodes for interacting with people.wsu.edu
-* Version:     0.0.1
+* Version:     0.1.0
 * Author:      CAHNRS Communications, Danial Bleile
 * Author URI:  http://cahnrs.wsu.edu/communications/
 * License:     Copyright Washington State University
