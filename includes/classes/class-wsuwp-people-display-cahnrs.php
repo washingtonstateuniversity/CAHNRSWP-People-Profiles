@@ -47,7 +47,7 @@ class WSUWP_People_Display_CAHNRS {
 				$html .= $this->get_person_display_table( $person, $atts );
 				break;
 
-		} // end switch()
+		} // End switch()
 
 		return $html;
 
@@ -71,7 +71,7 @@ class WSUWP_People_Display_CAHNRS {
 
 			$photo = 'https://people.wsu.edu/wp-content/uploads/sites/908/2015/07/HeadShot_Template2.jpg';
 
-		} // end if()
+		} // End if()
 
 		$first_name = ( isset( $person->first_name ) ) ? $person->first_name : '';
 
@@ -85,7 +85,7 @@ class WSUWP_People_Display_CAHNRS {
 
 			$position_title = ( isset( $person->position_title ) ) ?  ucwords( strtolower( $person->position_title ) ) : '';
 
-		} // end if
+		} // End if
 
 		$email = ( isset( $person->email ) ) ? $person->email : '';
 
@@ -99,7 +99,7 @@ class WSUWP_People_Display_CAHNRS {
 
 			$office = ( isset( $person->office ) ) ?  ucwords( strtolower( $person->office ) ) : '';
 
-		} // end if()
+		} // End if()
 
 		ob_start();
 
@@ -129,11 +129,11 @@ class WSUWP_People_Display_CAHNRS {
 				$html = ob_get_clean();
 				break;
 
-		} // end switch()
+		} // End switch()
 
 		return $html;
 
-	} // end 
+	} // end
 
 	/**
 	 * Add additional shortcode attributes
@@ -173,7 +173,7 @@ class WSUWP_People_Display_CAHNRS {
 
 			});
 
-		} // end if()
+		} // End if()
 
 		return $people;
 

@@ -1,9 +1,9 @@
 <div class="cwp-table-row">
 	<div class="cwp-table-cell profile-image">
-    	<img src="<?php echo $photo ?>" />
+    	<img src="<?php echo sanitize_text_field( $photo ) ?>" />
     </div>
     <div class="cwp-table-cell profile-contact">
-    	<h3><?php echo $first_name ?> <?php echo $last_name ?></h3>
+    	<h3><?php echo sanitize_text_field( $first_name ) ?> <?php echo sanitize_text_field( $last_name ) ?></h3>
         <ul>
         	<li><?php echo $position_title ?></li>
             <li><a href="mailto:<?php echo $email ?>"><?php echo $email ?></a></li>

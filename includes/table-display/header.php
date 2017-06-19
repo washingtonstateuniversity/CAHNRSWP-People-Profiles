@@ -4,9 +4,9 @@
     <div class="cwp-table-cell profile-contact">
     	Contact
     </div>
-    <?php if ( ! empty( $atts['bio'] ) ):?>
-    <div class="cwp-table-cell profile-bio">
-    	<?php if ( ! empty( $atts['bio-label'] ) ): ?><?php echo $atts['bio-label'] ?><?php else: ?>Research Interests<?php endif ?>
-    </div>
-    <?php endif ?>
+    <?php if ( ! empty( $atts['bio'] ) ) : ?>
+	<div class="cwp-table-cell profile-bio">
+		<?php if ( ! empty( $atts['bio-label'] ) ) : ?><?php echo sanitize_text_field( $atts['bio-label'] ) ?><?php else : ?>Research Interests<?php endif ?>
+	</div>
+	<?php endif ?>
 </div>
