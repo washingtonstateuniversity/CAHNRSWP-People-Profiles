@@ -7,7 +7,7 @@
  */
 class WSUWP_People_Display_CAHNRS {
 
-	public function __construct (){
+	public function __construct() {
 
 		add_action( 'after_setup_theme', array( $this, 'init' ) );
 
@@ -16,7 +16,7 @@ class WSUWP_People_Display_CAHNRS {
 	/**
 	 * Start plugin customisations after theme setup
 	 */
-	public function init (){
+	public function init() {
 
 		add_filter( 'wsuwp_people_item_html', array( $this, 'filter_wsuwp_people_item_html' ), 1, 4 );
 
@@ -38,9 +38,9 @@ class WSUWP_People_Display_CAHNRS {
 	 *
 	 * @return string Generated HTML for an individual person.
 	 */
-	public function filter_wsuwp_people_item_html ( $html, $person, $type, $atts ){
+	public function filter_wsuwp_people_item_html( $html, $person, $type, $atts ) {
 
-		switch ( $type ){
+		switch( $type ) {
 
 			case 'table':
 			
@@ -61,7 +61,7 @@ class WSUWP_People_Display_CAHNRS {
 	 *
 	 * @return string Generated HTML for an individual person.
 	 */
-	protected function get_person_display_table ( $person, $atts ){
+	protected function get_person_display_table( $person, $atts ) {
 
 		if ( isset( $person->profile_photo ) && ( $person->profile_photo != '' ) ) {
 
@@ -119,7 +119,7 @@ class WSUWP_People_Display_CAHNRS {
 	 *
 	 * @return string Generated HTML for an individual person.
 	 */
-	public function wsuwp_people_inner_html ( $html, $atts ){
+	public function wsuwp_people_inner_html( $html, $atts ) {
 
 		switch( $atts['output'] ){
 
@@ -145,7 +145,7 @@ class WSUWP_People_Display_CAHNRS {
 	 *
 	 * @return array $out Array of key value shortcode pairs.
 	 */
-	public function shortcode_atts_cahnrswp_people ( $out, $pairs, $atts, $shortcode ) {
+	public function shortcode_atts_cahnrswp_people( $out, $pairs, $atts, $shortcode ) {
 
 		$out[ 'bio'] = ( ! empty( $atts[ 'bio'] ) ) ? $atts[ 'bio'] : '';
 
@@ -163,7 +163,7 @@ class WSUWP_People_Display_CAHNRS {
 	 *
 	 * @return array Sorted data.
 	 */
-	public function wsuwp_people_sort_items ( $people, $atts ) {
+	public function wsuwp_people_sort_items( $people, $atts ) {
 
 		if ( is_array( $people ) ) {
 
